@@ -46,7 +46,7 @@ export default function ProjectModal({
 			}}
 		>
 			<motion.div
-				className="relative flex max-h-[calc(100vh-3rem)] w-full max-w-6xl flex-col overflow-hidden rounded-[36px] border border-white/10 bg-[#09090f] shadow-[0_30px_120px_rgba(0,0,0,0.6)]"
+				className="relative flex max-h-[calc(100vh-3rem)] w-full max-w-5xl flex-col overflow-hidden rounded-[36px] border border-white/10 bg-[#09090f] shadow-[0_30px_120px_rgba(0,0,0,0.6)]"
 				initial={{ y: 24, opacity: 0, scale: 0.98 }}
 				animate={{ y: 0, opacity: 1, scale: 1 }}
 				exit={{ y: 24, opacity: 0, scale: 0.98 }}
@@ -68,17 +68,17 @@ export default function ProjectModal({
 				{/* Scrollable content */}
 				<div className="overflow-y-auto">
 					{/* Header */}
-					<div className="px-6 pb-6 pt-8 sm:px-10 sm:pt-10">
+					<div className="px-5 pb-5 pt-7 sm:px-8 sm:pt-8">
 						<div className="mb-4 flex items-center gap-2 text-sm font-medium text-white/50">
 							<Sparkles size={15} />
 							<span>Project Spotlight</span>
 						</div>
 
-						<h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+						<h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
 							{project.title}
 						</h2>
 
-						<p className="mt-4 max-w-3xl text-base leading-7 text-white/60">
+						<p className="mt-3 max-w-2xl text-sm leading-6 text-white/60">
 							{project.description}
 						</p>
 					</div>
@@ -86,10 +86,10 @@ export default function ProjectModal({
 					{/* ========================================================= */}
 					{/* IMAGE GALLERY */}
 					{/* ========================================================= */}
-					<div className="px-6 sm:px-10">
-						<div className="rounded-[28px] border border-white/10 bg-white/[0.025] p-3 sm:p-4">
+					<div className="px-5 sm:px-8">
+						<div className="rounded-[22px] border border-white/10 bg-white/[0.025] p-2.5 sm:p-3">
 							{/* Main image */}
-							<div className="group relative aspect-[16/9] overflow-hidden rounded-[22px] bg-black/40">
+							<div className="group relative aspect-[16/8] overflow-hidden rounded-[18px] bg-black/40">
 								<AnimatePresence mode="wait">
 									<motion.div
 										key={activeImage}
@@ -104,7 +104,7 @@ export default function ProjectModal({
 											alt={`${project.title} screenshot ${activeImage + 1}`}
 											fill
 											priority={activeImage === 0}
-											sizes="(max-width: 768px) 100vw, 1100px"
+											sizes="(max-width: 768px) 100vw, 1000px"
 											className="object-contain"
 										/>
 									</motion.div>
@@ -115,10 +115,10 @@ export default function ProjectModal({
 									<button
 										type="button"
 										onClick={previousImage}
-										className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/80 group-hover:opacity-100"
+										className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/80 group-hover:opacity-100"
 										aria-label="Previous image"
 									>
-										<ChevronLeft size={22} />
+										<ChevronLeft size={18} />
 									</button>
 								)}
 
@@ -127,27 +127,25 @@ export default function ProjectModal({
 									<button
 										type="button"
 										onClick={nextImage}
-										className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/80 group-hover:opacity-100"
+										className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white opacity-0 backdrop-blur-md transition-all hover:bg-black/80 group-hover:opacity-100"
 										aria-label="Next image"
 									>
-										<ChevronRight size={22} />
+										<ChevronRight size={18} />
 									</button>
 								)}
 
 								{/* Image counter */}
 								{project.images.length > 1 && (
-									<div className="absolute bottom-4 right-4 z-10 rounded-full border border-white/10 bg-black/60 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md">
+									<div className="absolute bottom-3 right-3 z-10 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-[10px] font-medium text-white/80 backdrop-blur-md">
 										{activeImage + 1} / {project.images.length}
 									</div>
 								)}
 							</div>
 
-							{/* ===================================================== */}
-							{/* THUMBNAILS */}
-							{/* ===================================================== */}
+							{/* Thumbnails */}
 							{project.images.length > 1 && (
-								<div className="mt-3 overflow-x-auto pb-1">
-									<div className="flex min-w-max gap-3">
+								<div className="mt-2 overflow-x-auto">
+									<div className="flex min-w-max gap-2">
 										{project.images.map((image, index) => {
 											const isActive = activeImage === index;
 
@@ -156,10 +154,10 @@ export default function ProjectModal({
 													key={index}
 													type="button"
 													onClick={() => setActiveImage(index)}
-													className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-xl border-2 transition-all sm:h-24 sm:w-36 ${
+													className={`relative h-14 w-22 shrink-0 overflow-hidden rounded-lg border transition-all sm:h-16 sm:w-24 ${
 														isActive
 															? "border-white opacity-100"
-															: "border-transparent opacity-50 hover:border-white/30 hover:opacity-80"
+															: "border-transparent opacity-45 hover:border-white/30 hover:opacity-80"
 													}`}
 													aria-label={`View image ${index + 1}`}
 												>
@@ -167,7 +165,7 @@ export default function ProjectModal({
 														src={image}
 														alt={`${project.title} thumbnail ${index + 1}`}
 														fill
-														sizes="144px"
+														sizes="96px"
 														className="object-cover"
 													/>
 
@@ -186,12 +184,12 @@ export default function ProjectModal({
 					{/* ========================================================= */}
 					{/* PROJECT INFORMATION */}
 					{/* ========================================================= */}
-					<div className="grid gap-8 px-6 py-8 sm:px-10 lg:grid-cols-[1fr_320px]">
+					<div className="grid gap-6 px-5 py-6 sm:px-8 lg:grid-cols-[1fr_280px]">
 						{/* Left */}
 						<div>
 							{/* Impact */}
 							{project.impact && (
-								<div className="mb-8">
+								<div className="mb-6">
 									<h3 className="mb-3 text-sm font-medium uppercase tracking-wider text-white/40">
 										Impact
 									</h3>

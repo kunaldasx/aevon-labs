@@ -55,9 +55,9 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 					variants={container}
 					initial="hidden"
 					animate="visible"
-					className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+					className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
 				>
-					{visibleProjects.map((project, index) => (
+					{visibleProjects.map((project) => (
 						<motion.div key={project.id} variants={card}>
 							<ProjectCard
 								project={project}
