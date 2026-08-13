@@ -9,6 +9,8 @@ import {
 } from "framer-motion";
 import { Menu, X, Zap, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Logo from "@/assets/images/logo.png";
 
 const navLinks = [
 	{ label: "Services", href: "#services" },
@@ -103,13 +105,8 @@ export default function Navbar() {
 							whileTap={{ scale: 0.97 }}
 							onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
 						>
-							<div className="relative w-8 h-8 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
-								<div
-									className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-									style={{ filter: "blur(6px)" }}
-								/>
-								<Zap className="relative w-4 h-4 text-white" />
-							</div>
+							<Image src={Logo} alt="AEVON Logo" width={32} height={32} />
+
 							<span className="text-xl font-black tracking-tight">
 								<span className="text-gradient">AEVON</span>
 							</span>
