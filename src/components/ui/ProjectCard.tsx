@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Monitor } from "lucide-react";
 import { Project } from "@/lib/projects";
+import Image from "next/image";
 
 interface ProjectCardProps {
 	project: Project;
@@ -35,9 +36,13 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 					ease: [0.22, 1, 0.36, 1],
 				}}
 			>
-				<img
+				<Image
 					src={project.banner}
 					alt={project.title}
+					height={500}
+					width={500}
+					priority
+					quality={100}
 					className="h-full w-full object-cover"
 				/>
 			</motion.div>
