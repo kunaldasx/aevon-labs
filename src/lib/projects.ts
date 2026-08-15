@@ -1,26 +1,57 @@
-import NagpurmartCustomer from "@/assets/images/nagpurmart-customer.png";
-import NagpurmartSeller from "@/assets/images/nagpurmart-seller.png";
-import NagpurmartRider from "@/assets/images/nagpurmart-rider.png";
-import NagpurmartWebsite from "@/assets/images/nagpurmart-web.png";
-import Groome1 from "@/assets/images/groome-1.png";
-import Groome2 from "@/assets/images/groome-2.png";
-import Groome3 from "@/assets/images/groome-3.png";
-import Groome4 from "@/assets/images/groome-4.png";
-import GroomeAdmin1 from "@/assets/images/groome-admin-1.png";
-import GroomeAdmin2 from "@/assets/images/groome-admin-2.png";
-import GroomeAdmin3 from "@/assets/images/groome-admin-3.png";
-import NSH1 from "@/assets/images/nsh-1.png";
-import NSH2 from "@/assets/images/nsh-2.png";
-import NSH3 from "@/assets/images/nsh-3.png";
-import NSH4 from "@/assets/images/nsh-4.png";
-import NSH5 from "@/assets/images/nsh-5.png";
-import Crusto1 from "@/assets/images/crusto-1.png";
-import Crusto2 from "@/assets/images/crusto-2.png";
-import Crusto3 from "@/assets/images/crusto-3.png";
-import Crusto4 from "@/assets/images/crusto-4.png";
-import Crusto5 from "@/assets/images/crusto-5.png";
-import Crusto6 from "@/assets/images/crusto-6.png";
+import {
+	NagpurmartCustomer,
+	NagpurmartRider,
+	NagpurmartSeller,
+	NagpurmartWeb,
+} from "@/assets/images/projects/nagpurmart";
+
+import {
+	Groome1,
+	Groome2,
+	Groome3,
+	Groome4,
+	GroomeApp1,
+	GroomeApp2,
+	GroomeApp3,
+	GroomeApp4,
+	GroomeApp5,
+	GroomeAdmin1,
+	GroomeAdmin2,
+	GroomeAdmin3,
+} from "@/assets/images/projects/groome";
+
+import { Nsh1, Nsh2, Nsh3, Nsh4, Nsh5 } from "@/assets/images/projects/nsh";
+
+import {
+	Banner,
+	Crusto1,
+	Crusto2,
+	Crusto3,
+	Crusto4,
+	Crusto5,
+	Crusto6,
+} from "@/assets/images/projects/crusto";
+
+import {
+	Banner as CRBanner,
+	CR1,
+	CR2,
+	CR3,
+} from "@/assets/images/projects/car-rental";
+
 import { StaticImageData } from "next/image";
+import {
+	VS1,
+	VS2,
+	VS3,
+	VS4,
+	VS5,
+	VS6,
+	VS7,
+	VS8,
+	VS9,
+	VS10,
+} from "@/assets/images/projects/verigrow-solar";
 
 export interface Project {
 	id: string;
@@ -64,7 +95,7 @@ export const PROJECTS: Project[] = [
 			NagpurmartCustomer,
 			NagpurmartSeller,
 			NagpurmartRider,
-			NagpurmartWebsite,
+			NagpurmartWeb,
 		],
 	},
 	{
@@ -87,6 +118,11 @@ export const PROJECTS: Project[] = [
 			Groome2,
 			Groome3,
 			Groome4,
+			GroomeApp1,
+			GroomeApp2,
+			GroomeApp3,
+			GroomeApp4,
+			GroomeApp5,
 			GroomeAdmin1,
 			GroomeAdmin2,
 			GroomeAdmin3,
@@ -115,8 +151,8 @@ export const PROJECTS: Project[] = [
 			"Razorpay",
 			"Firebase",
 		],
-		banner: NSH1,
-		images: [NSH1, NSH2, NSH3, NSH4, NSH5],
+		banner: Nsh1,
+		images: [Nsh1, Nsh2, Nsh3, Nsh4, Nsh5],
 	},
 	{
 		id: "crusto",
@@ -143,7 +179,45 @@ export const PROJECTS: Project[] = [
 			"BullMQ",
 			"Razorpay",
 		],
-		banner: Crusto1,
+		banner: Banner,
 		images: [Crusto1, Crusto2, Crusto3, Crusto4, Crusto5, Crusto6],
+	},
+	{
+		id: "car-rental",
+		title: "Premium Car Rental",
+		subtitle: "Premium car rental and booking mobile application",
+		description:
+			"A Flutter-based car rental application that lets users browse premium vehicles, compare rental options, view detailed vehicle information, and manage bookings through a streamlined mobile experience.",
+		details: [
+			"Premium vehicle browsing with rental rates, mileage, and fuel information",
+			"Vehicle selection interface for comparing available cars and rental options",
+			"Detailed vehicle information with customer and location details",
+			"Rental history and booking information for managing active and previous rentals",
+			"Responsive mobile-first UI designed for a smooth and intuitive booking experience",
+		],
+		impact:
+			"Built a complete mobile car rental experience covering vehicle discovery, comparison, booking workflows, and rental information in a polished Flutter application.",
+		tags: ["Flutter", "Dart", "Mobile Development"],
+		banner: CRBanner,
+		images: [CR1, CR2, CR3],
+	},
+	{
+		id: "verigrow-solar",
+		title: "Verigrow Solar",
+		subtitle: "Solar energy solutions and rooftop inspection platform",
+		description:
+			"A modern solar energy website designed to help customers explore solar solutions, estimate potential savings, and request free rooftop inspections through a conversion-focused experience.",
+		details: [
+			"Lead-generation workflow for collecting customer details and scheduling free rooftop inspections",
+			"Solar bill calculator for helping customers evaluate potential savings and system requirements",
+			"Product, package, and project showcases for exploring available solar solutions",
+			"Responsive landing page with clear calls to action, promotional offers, and customer-focused information",
+			"Integrated contact and inquiry flows designed to simplify the transition to rooftop solar",
+		],
+		impact:
+			"Built a conversion-focused solar platform that combines product discovery, savings estimation, and lead generation into a streamlined customer experience.",
+		tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+		banner: VS1,
+		images: [VS1, VS2, VS3, VS4, VS5, VS6, VS7, VS8, VS9, VS10],
 	},
 ];

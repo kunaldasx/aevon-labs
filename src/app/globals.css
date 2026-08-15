@@ -30,6 +30,7 @@ body {
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
 	width: 5px;
+	height: 4px;
 }
 ::-webkit-scrollbar-track {
 	background: #080810;

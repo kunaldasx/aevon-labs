@@ -19,6 +19,10 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 	const [isResetting, setIsResetting] = useState(false);
 
 	const cardRef = useRef<HTMLDivElement>(null);
+	const carouselRef = useRef<HTMLDivElement>(null);
+
+	const [cardWidth, setCardWidth] = useState(0);
+	const [carouselWidth, setCarouselWidth] = useState(0);
 
 	const projectCount = PROJECTS.length;
 
@@ -29,21 +33,32 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 	 * This keeps the carousel accurate across breakpoints.
 	 */
 	useEffect(() => {
-		const updateCardOffset = () => {
-			if (!cardRef.current) return;
+		const updateDimensions = () => {
+			if (!cardRef.current || !carouselRef.current) return;
 
 			const cardWidth = cardRef.current.offsetWidth;
-			const gap = 20; // gap-5
+			const carouselWidth = carouselRef.current.clientWidth;
+			const gap = 20;
 
+			setCardWidth(cardWidth);
+			setCarouselWidth(carouselWidth);
 			setCardOffset(cardWidth + gap);
 		};
 
-		updateCardOffset();
+		updateDimensions();
 
-		window.addEventListener("resize", updateCardOffset);
+		const resizeObserver = new ResizeObserver(updateDimensions);
+
+		if (carouselRef.current) {
+			resizeObserver.observe(carouselRef.current);
+		}
+
+		if (cardRef.current) {
+			resizeObserver.observe(cardRef.current);
+		}
 
 		return () => {
-			window.removeEventListener("resize", updateCardOffset);
+			resizeObserver.disconnect();
 		};
 	}, []);
 
@@ -132,6 +147,8 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 		return null;
 	}
 
+	const centerOffset = (carouselWidth - cardWidth) / 2;
+
 	return (
 		<section id="projects" className="relative overflow-hidden py-28">
 			<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-surface/20 to-background" />
@@ -189,13 +206,12 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 					>
 						<ChevronRight className="h-5 w-5" />
 					</button>
-
 					{/* Track */}
-					<div className="overflow-hidden">
+					<div ref={carouselRef} className="overflow-hidden">
 						<motion.div
 							className="flex gap-5"
 							animate={{
-								x: -(currentIndex * cardOffset),
+								x: centerOffset - currentIndex * cardOffset,
 							}}
 							transition={{
 								duration: isResetting ? 0 : SLIDE_DURATION,
@@ -207,7 +223,7 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 								<div
 									key={`${project.id}-${index}`}
 									ref={index === 0 ? cardRef : undefined}
-									className="w-[300px] shrink-0 sm:w-[360px] lg:w-[390px]"
+									className="w-[300px] shrink-0 sm:w-[400px] lg:w-[500px]"
 								>
 									<ProjectCard
 										project={project}

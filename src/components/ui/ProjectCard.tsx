@@ -18,24 +18,10 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 			initial="rest"
 			whileHover="hover"
 			animate="rest"
-			className="group relative aspect-[16/12] w-full overflow-hidden rounded-[24px] border border-white/10 bg-surface text-left"
+			className="group relative aspect-[16/9] w-full overflow-hidden rounded-[24px] border border-white/10 bg-surface text-left"
 		>
 			{/* Background image */}
-			<motion.div
-				className="absolute inset-0"
-				variants={{
-					rest: {
-						scale: 1,
-					},
-					hover: {
-						scale: 1.06,
-					},
-				}}
-				transition={{
-					duration: 0.6,
-					ease: [0.22, 1, 0.36, 1],
-				}}
-			>
+			<motion.div className="absolute inset-0">
 				<Image
 					src={project.banner}
 					alt={project.title}
@@ -47,12 +33,6 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 				/>
 			</motion.div>
 
-			{/* Base overlay */}
-			<div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/65" />
-
-			{/* Bottom gradient */}
-			<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
 			{/* Showcase badge */}
 			<div className="absolute left-4 top-4 z-10 sm:left-5 sm:top-5">
 				<div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[0.18em] text-white/75 backdrop-blur-md">
@@ -62,9 +42,9 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 			</div>
 
 			{/* Content */}
-			<div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+			<div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 bg-black/40 group-hover:bg-black/70 group-hover:backdrop-blur-md group">
 				{/* Subtitle */}
-				<p className="mb-2 line-clamp-2 max-w-[95%] text-[10px] font-medium uppercase leading-4 tracking-[0.16em] text-white/55">
+				<p className="hidden mb-2 line-clamp-2 max-w-[95%] text-[10px] font-medium uppercase leading-4 tracking-[0.16em] text-white/55 group-hover:flex">
 					{project.subtitle}
 				</p>
 

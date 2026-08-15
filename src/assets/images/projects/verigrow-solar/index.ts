@@ -1,0 +1,10 @@
+export { default as VS1 } from "./vs-1.png";
+export { default as VS2 } from "./vs-2.png";
+export { default as VS3 } from "./vs-3.png";
+export { default as VS4 } from "./vs-4.png";
+export { default as VS5 } from "./vs-5.png";
+export { default as VS6 } from "./vs-6.png";
+export { default as VS7 } from "./vs-7.png";
+export { default as VS8 } from "./vs-8.png";
+export { default as VS9 } from "./vs-9.png";
+export { default as VS10 } from "./vs-10.png";
