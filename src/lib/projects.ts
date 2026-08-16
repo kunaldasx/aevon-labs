@@ -53,6 +53,8 @@ import {
 	VS10,
 } from "@/assets/images/projects/verigrow-solar";
 
+import SoncilyBanner from "@/assets/images/projects/soncily/soncily-banner.png";
+
 export interface Project {
 	id: string;
 	title: string;
@@ -219,5 +221,24 @@ export const PROJECTS: Project[] = [
 		tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
 		banner: VS1,
 		images: [VS1, VS2, VS3, VS4, VS5, VS6, VS7, VS8, VS9, VS10],
+	},
+	{
+		id: "soncily",
+		title: "Soncily",
+		subtitle: "Music streaming and discovery platform",
+		description:
+			"A modern music streaming application inspired by platforms like Spotify, designed for discovering artists, exploring albums, creating playlists, and enjoying a seamless listening experience.",
+		details: [
+			"Music discovery experience with curated sections for trending tracks, popular artists, albums, and personalized recommendations",
+			"Audio player with playback controls, track progress, volume management, and queue-based listening",
+			"Playlist management allowing users to create, organize, and manage their personal music collections",
+			"Artist and album pages with detailed information and organized track listings",
+			"Responsive interface designed for seamless music browsing and playback across desktop and mobile devices",
+		],
+		impact:
+			"Built a complete music streaming experience focused on fast content discovery, organized music libraries, playlist management, and an intuitive listening workflow.",
+		tags: ["Flutter"],
+		banner: SoncilyBanner,
+		images: [SoncilyBanner],
 	},
 ];
