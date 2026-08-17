@@ -7,7 +7,7 @@ import {
 	useScroll,
 	useMotionValueEvent,
 } from "framer-motion";
-import { Menu, X, Zap, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Logo from "@/assets/images/logo.png";
@@ -55,23 +55,34 @@ export default function Navbar() {
 
 	// Intersection-based active section tracking
 	useEffect(() => {
-		const sections = navLinks.map((l) => l.href.replace("#", ""));
-		const observers: IntersectionObserver[] = [];
+		const handleScroll = () => {
+			const navOffset = 120;
 
-		sections.forEach((id) => {
-			const el = document.getElementById(id);
-			if (!el) return;
-			const obs = new IntersectionObserver(
-				([entry]) => {
-					if (entry.isIntersecting) setActiveLink(`#${id}`);
-				},
-				{ threshold: 0.3, rootMargin: "-80px 0px 0px 0px" },
-			);
-			obs.observe(el);
-			observers.push(obs);
-		});
+			let currentSection = "";
 
-		return () => observers.forEach((o) => o.disconnect());
+			for (const link of navLinks) {
+				const id = link.href.replace("#", "");
+				const section = document.getElementById(id);
+
+				if (!section) continue;
+
+				const rect = section.getBoundingClientRect();
+
+				if (rect.top <= navOffset) {
+					currentSection = link.href;
+				}
+			}
+
+			setActiveLink(currentSection);
+		};
+
+		handleScroll();
+
+		window.addEventListener("scroll", handleScroll, { passive: true });
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
 	}, []);
 
 	const handleNavClick = (href: string) => {

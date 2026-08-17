@@ -42,38 +42,42 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 			</div>
 
 			{/* Content */}
-			<div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 bg-black/40 group-hover:bg-black/70 group-hover:backdrop-blur-md group">
-				{/* Subtitle */}
-				<p className="hidden mb-2 line-clamp-2 max-w-[95%] text-[10px] font-medium uppercase leading-4 tracking-[0.16em] text-white/55 group-hover:flex">
-					{project.subtitle}
-				</p>
+			<div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+				{/* Bottom readability gradient */}
+				<div
+					className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+					style={{
+						background:
+							"linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.65) 45%, transparent 100%)",
+					}}
+				/>
 
-				{/* Title */}
-				<h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
-					{project.title}
-				</h3>
+				{/* Hover readability overlay */}
+				<div className="pointer-events-none absolute inset-x-0 bottom-0 h-52 bg-black/70 opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100" />
 
-				{/* Hover content */}
+				{/* Hover details */}
 				<motion.div
 					variants={{
 						rest: {
 							opacity: 0,
-							height: 0,
-							y: 10,
+							y: 8,
 						},
 						hover: {
 							opacity: 1,
-							height: "auto",
 							y: 0,
 						},
 					}}
 					transition={{
-						duration: 0.3,
+						duration: 0.25,
 						ease: [0.22, 1, 0.36, 1],
 					}}
-					className="overflow-hidden"
+					className="absolute bottom-[72px] left-4 right-4 pointer-events-none sm:bottom-[90px] sm:left-5 sm:right-5"
 				>
-					<p className="mt-2 line-clamp-2 text-xs leading-5 text-white/70">
+					<p className="mb-2 line-clamp-2 text-[10px] font-medium uppercase leading-4 tracking-[0.16em] text-white/70">
+						{project.subtitle}
+					</p>
+
+					<p className="line-clamp-2 text-xs leading-5 text-white/80">
 						{project.description}
 					</p>
 
@@ -81,7 +85,7 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 						{project.tags.slice(0, 4).map((tag) => (
 							<span
 								key={tag}
-								className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[9px] text-white/70 backdrop-blur-sm"
+								className="rounded-full border border-white/15 bg-black/40 px-2 py-1 text-[9px] text-white/80 backdrop-blur-sm"
 							>
 								{tag}
 							</span>
@@ -89,9 +93,14 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 					</div>
 				</motion.div>
 
+				{/* Title */}
+				<h3 className="relative z-10 text-xl font-bold tracking-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-2xl">
+					{project.title}
+				</h3>
+
 				{/* Action */}
-				<div className="mt-3 flex items-center justify-between">
-					<span className="text-xs font-semibold text-primary sm:text-sm">
+				<div className="relative z-10 mt-3 flex items-center justify-between">
+					<span className="text-xs font-semibold text-primary drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-sm">
 						View details
 					</span>
 
@@ -108,7 +117,7 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 						}}
 						transition={{ duration: 0.2 }}
 					>
-						<ArrowUpRight className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
+						<ArrowUpRight className="h-4 w-4 text-primary drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:h-5 sm:w-5" />
 					</motion.div>
 				</div>
 			</div>

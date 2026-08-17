@@ -65,6 +65,9 @@ export interface Project {
 	tags: string[];
 	banner: string | StaticImageData;
 	images: string[] | StaticImageData[];
+	demoUrl?: string;
+	playstoreUrl?: string;
+	appstoreUrl?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -99,6 +102,9 @@ export const PROJECTS: Project[] = [
 			NagpurmartRider,
 			NagpurmartWeb,
 		],
+		demoUrl: "https://nagpurmart.in",
+		playstoreUrl:
+			"https://play.google.com/store/apps/details?id=com.nagpurmart.customer&hl=en_IN",
 	},
 	{
 		id: "groome",
@@ -129,6 +135,7 @@ export const PROJECTS: Project[] = [
 			GroomeAdmin2,
 			GroomeAdmin3,
 		],
+		demoUrl: "https://groome.net/",
 	},
 	{
 		id: "natureshade-herbals",
@@ -155,6 +162,7 @@ export const PROJECTS: Project[] = [
 		],
 		banner: Nsh1,
 		images: [Nsh1, Nsh2, Nsh3, Nsh4, Nsh5],
+		demoUrl: "https://natureshadeherbal.com/",
 	},
 	{
 		id: "crusto",
@@ -182,7 +190,8 @@ export const PROJECTS: Project[] = [
 			"Razorpay",
 		],
 		banner: Banner,
-		images: [Crusto1, Crusto2, Crusto3, Crusto4, Crusto5, Crusto6],
+		images: [Banner, Crusto1, Crusto2, Crusto3, Crusto4, Crusto5, Crusto6],
+		demoUrl: "https://crusto-pizza.vercel.app/",
 	},
 	{
 		id: "car-rental",
@@ -201,7 +210,7 @@ export const PROJECTS: Project[] = [
 			"Built a complete mobile car rental experience covering vehicle discovery, comparison, booking workflows, and rental information in a polished Flutter application.",
 		tags: ["Flutter", "Dart", "Mobile Development"],
 		banner: CRBanner,
-		images: [CR1, CR2, CR3],
+		images: [CRBanner, CR1, CR2, CR3],
 	},
 	{
 		id: "verigrow-solar",
@@ -221,6 +230,7 @@ export const PROJECTS: Project[] = [
 		tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
 		banner: VS1,
 		images: [VS1, VS2, VS3, VS4, VS5, VS6, VS7, VS8, VS9, VS10],
+		demoUrl: "https://verigrow-solar.vercel.app/",
 	},
 	{
 		id: "soncily",
