@@ -97,9 +97,43 @@ export default function Contact() {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		setLoading(true);
-		await new Promise((r) => setTimeout(r, 1500));
-		setLoading(false);
-		setSubmitted(true);
+
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(form),
+			});
+
+			const data = await response.json();
+
+			if (!response.ok || !data.success) {
+				throw new Error(data.message || "Failed to send message.");
+			}
+
+			setSubmitted(true);
+
+			// Optional: clear the form after successful submission
+			setForm({
+				name: "",
+				email: "",
+				service: "",
+				budget: "",
+				message: "",
+			});
+		} catch (error) {
+			console.error("Contact form submission error:", error);
+
+			alert(
+				error instanceof Error
+					? error.message
+					: "Something went wrong. Please try again.",
+			);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	const focusStyle = (field: string): React.CSSProperties => ({

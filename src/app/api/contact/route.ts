@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
 		await transporter.sendMail({
 			from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-			to: process.env.CONTACT_EMAIL,
+			to: process.env.SMTP_USER,
 			replyTo: email,
 			subject: `New Project Inquiry — ${service || "General Inquiry"}`,
 			text: `

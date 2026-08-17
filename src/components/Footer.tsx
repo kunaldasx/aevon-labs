@@ -32,9 +32,9 @@ const LINKS = {
 		{ label: "Testimonials", href: "#testimonials" },
 	],
 	Legal: [
-		{ label: "Privacy Policy", href: "#legal" },
-		{ label: "Terms of Service", href: "#legal" },
-		{ label: "Cookie Policy", href: "#legal" },
+		{ label: "Privacy Policy", href: "/privacy-policy" },
+		{ label: "Terms of Service", href: "/terms" },
+		{ label: "Cookie Policy", href: "/cookies" },
 	],
 };
 
@@ -62,14 +62,14 @@ const SOCIALS = [
 ];
 
 export default function Footer() {
-	const handleNavClick = (href: string) => {
-		const el = document.querySelector(href);
+	// const handleNavClick = (href: string) => {
+	// 	const el = document.querySelector(href);
 
-		el?.scrollIntoView({
-			behavior: "smooth",
-			block: "start",
-		});
-	};
+	// 	el?.scrollIntoView({
+	// 		behavior: "smooth",
+	// 		block: "start",
+	// 	});
+	// };
 
 	return (
 		<footer
@@ -125,14 +125,14 @@ export default function Footer() {
 						</p>
 					</motion.div>
 
-					<motion.button
+					<motion.a
 						initial={{ opacity: 0, x: 30 }}
 						whileInView={{ opacity: 1, x: 0 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6 }}
 						whileHover={{ scale: 1.05, y: -2 }}
 						whileTap={{ scale: 0.95 }}
-						onClick={() => handleNavClick("#contact")}
+						href="#contact"
 						className="flex-shrink-0 flex items-center gap-2.5 px-7 py-4 rounded-2xl text-base font-black text-white"
 						style={{
 							background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
@@ -142,7 +142,7 @@ export default function Footer() {
 					>
 						Start a Project
 						<ArrowUpRight className="w-4 h-4" />
-					</motion.button>
+					</motion.a>
 				</div>
 			</div>
 
@@ -234,10 +234,10 @@ export default function Footer() {
 
 							<div className="flex flex-col gap-2.5">
 								{items.map((item) => (
-									<motion.button
+									<motion.a
 										key={item.label}
 										type="button"
-										onClick={() => handleNavClick(item.href)}
+										href={item.href}
 										whileHover={{ x: 5 }}
 										transition={{
 											type: "spring",
@@ -247,7 +247,7 @@ export default function Footer() {
 										className="text-sm text-foreground-muted/50 hover:text-foreground/80 transition-colors duration-200 cursor-pointer inline-block text-left"
 									>
 										{item.label}
-									</motion.button>
+									</motion.a>
 								))}
 							</div>
 						</div>
