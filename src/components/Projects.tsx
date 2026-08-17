@@ -192,7 +192,7 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 						type="button"
 						onClick={goPrevious}
 						aria-label="Previous project"
-						className="absolute left-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border/60 bg-background/80 text-foreground backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-primary/50 hover:bg-background sm:left-4"
+						className="hidden absolute left-2 top-1/2 z-20 md:flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border/60 bg-background/80 text-foreground backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-primary/50 hover:bg-background sm:left-4"
 					>
 						<ChevronLeft className="h-5 w-5" />
 					</button>
@@ -202,7 +202,7 @@ export default function Projects({ showAll = false }: { showAll?: boolean }) {
 						type="button"
 						onClick={goNext}
 						aria-label="Next project"
-						className="absolute right-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border/60 bg-background/80 text-foreground backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-primary/50 hover:bg-background sm:right-4"
+						className="hidden absolute right-2 top-1/2 z-20 md:flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border/60 bg-background/80 text-foreground backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-primary/50 hover:bg-background sm:right-4"
 					>
 						<ChevronRight className="h-5 w-5" />
 					</button>

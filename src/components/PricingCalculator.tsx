@@ -33,7 +33,7 @@ const SERVICES = [
 		icon: Smartphone,
 		label: "App Development",
 		desc: "iOS & Android",
-		base: 3500,
+		base: 40000,
 		color: "from-violet-500 to-indigo-500",
 	},
 	{
@@ -41,7 +41,7 @@ const SERVICES = [
 		icon: Globe,
 		label: "Web Development",
 		desc: "React / Next.js",
-		base: 2500,
+		base: 40000,
 		color: "from-indigo-500 to-blue-500",
 	},
 	{
@@ -49,23 +49,23 @@ const SERVICES = [
 		icon: Server,
 		label: "Backend & APIs",
 		desc: "Node / Python",
-		base: 2000,
+		base: 35000,
 		color: "from-cyan-500 to-indigo-500",
 	},
 	{
 		id: "ai",
 		icon: Brain,
 		label: "AI Agents",
-		desc: "GPT-4 / Claude",
-		base: 5000,
+		desc: "LLM-powered automation",
+		base: 45000,
 		color: "from-purple-500 to-pink-500",
 	},
 	{
 		id: "chatbot",
 		icon: MessageSquare,
 		label: "Chatbots",
-		desc: "Custom trained",
-		base: 2500,
+		desc: "AI & custom chatbots",
+		base: 25000,
 		color: "from-emerald-500 to-cyan-500",
 	},
 	{
@@ -73,7 +73,7 @@ const SERVICES = [
 		icon: Database,
 		label: "Database Design",
 		desc: "Schema + queries",
-		base: 1500,
+		base: 20000,
 		color: "from-amber-500 to-orange-500",
 	},
 	{
@@ -81,7 +81,7 @@ const SERVICES = [
 		icon: Bug,
 		label: "Bug Solving",
 		desc: "Debug & fix",
-		base: 800,
+		base: 5000,
 		color: "from-red-500 to-rose-500",
 	},
 	{
@@ -89,7 +89,7 @@ const SERVICES = [
 		icon: Rocket,
 		label: "Deployment",
 		desc: "CI/CD & cloud",
-		base: 1000,
+		base: 15000,
 		color: "from-indigo-500 to-violet-500",
 	},
 	{
@@ -97,7 +97,7 @@ const SERVICES = [
 		icon: Wrench,
 		label: "Maintenance",
 		desc: "Ongoing support",
-		base: 1200,
+		base: 10000,
 		color: "from-slate-400 to-slate-600",
 	},
 	{
@@ -105,7 +105,7 @@ const SERVICES = [
 		icon: Search,
 		label: "SEO",
 		desc: "Technical + on-page",
-		base: 1000,
+		base: 15000,
 		color: "from-green-500 to-emerald-500",
 	},
 	{
@@ -113,7 +113,7 @@ const SERVICES = [
 		icon: Layers,
 		label: "Figma Design",
 		desc: "UI/UX & systems",
-		base: 1500,
+		base: 25000,
 		color: "from-pink-500 to-rose-500",
 	},
 	{
@@ -121,7 +121,7 @@ const SERVICES = [
 		icon: Layout,
 		label: "WordPress",
 		desc: "Themes + plugins",
-		base: 1500,
+		base: 25000,
 		color: "from-blue-500 to-cyan-500",
 	},
 	{
@@ -129,7 +129,7 @@ const SERVICES = [
 		icon: ShoppingBag,
 		label: "Shopify",
 		desc: "Custom stores",
-		base: 2000,
+		base: 25000,
 		color: "from-green-600 to-teal-500",
 	},
 ];

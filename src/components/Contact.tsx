@@ -61,10 +61,11 @@ const SERVICES = [
 	"Other",
 ];
 const BUDGETS = [
-	["<5k", "< $5,000"],
-	["5k-15k", "$5,000 – $15,000"],
-	["15k-50k", "$15,000 – $50,000"],
-	["50k+", "$50,000+"],
+	["<20k", "Under ₹20,000"],
+	["20k-50k", "₹20,000 – ₹50,000"],
+	["50k-1l", "₹50,000 – ₹1,00,000"],
+	["1l-2.5l", "₹1,00,000 – ₹2,50,000"],
+	["2.5l+", "₹2,50,000+"],
 	["not-sure", "Not sure yet"],
 ];
 const PROMISES = [
@@ -96,9 +97,43 @@ export default function Contact() {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		setLoading(true);
-		await new Promise((r) => setTimeout(r, 1500));
-		setLoading(false);
-		setSubmitted(true);
+
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(form),
+			});
+
+			const data = await response.json();
+
+			if (!response.ok || !data.success) {
+				throw new Error(data.message || "Failed to send message.");
+			}
+
+			setSubmitted(true);
+
+			// Optional: clear the form after successful submission
+			setForm({
+				name: "",
+				email: "",
+				service: "",
+				budget: "",
+				message: "",
+			});
+		} catch (error) {
+			console.error("Contact form submission error:", error);
+
+			alert(
+				error instanceof Error
+					? error.message
+					: "Something went wrong. Please try again.",
+			);
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	const focusStyle = (field: string): React.CSSProperties => ({
@@ -279,7 +314,8 @@ export default function Contact() {
 											Message Received!
 										</h3>
 										<p className="text-foreground-muted">
-											We&apos;ll be in touch within 2 hours. Check your inbox.
+											We&apos;ve received your message and will get back to you
+											within 2 business hours.
 										</p>
 									</div>
 									<motion.button

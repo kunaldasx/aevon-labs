@@ -262,7 +262,7 @@ function ServiceCard({
 			</p>
 
 			{/* Hover arrow */}
-			<motion.div
+			{/* <motion.div
 				initial={{ opacity: 0, x: -6 }}
 				animate={isHovered ? { opacity: 1, x: 0 } : { opacity: 0, x: -6 }}
 				transition={{ duration: 0.2 }}
@@ -276,7 +276,7 @@ function ServiceCard({
 			>
 				<span>Learn more</span>
 				<ArrowUpRight className="w-3.5 h-3.5" />
-			</motion.div>
+			</motion.div> */}
 		</motion.div>
 	);
 }

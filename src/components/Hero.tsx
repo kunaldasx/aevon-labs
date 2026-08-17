@@ -186,11 +186,11 @@ export default function Hero() {
 
 				{/* Headline */}
 				<motion.div variants={fadeUp} className="flex flex-col gap-1.5">
-					<h1 className="text-5xl sm:text-7xl md:text-8xl font-black leading-[1.02] tracking-tight text-foreground">
+					<h1 className="text-5xl sm:text-7xl md:text-8xl font-black leading-[1.1] tracking-tight text-foreground">
 						We Build
 					</h1>
 					<h1
-						className="text-5xl sm:text-7xl md:text-8xl font-black leading-[1.02] tracking-tight"
+						className="text-5xl sm:text-7xl md:text-8xl font-black leading-[normal] tracking-tight overflow-visible pb-2"
 						style={{
 							background:
 								"linear-gradient(135deg, #6366f1 0%, #8b5cf6 45%, #06b6d4 100%)",

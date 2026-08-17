@@ -80,7 +80,7 @@ export default function ProjectModal({
 
 	return (
 		<motion.div
-			className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm sm:p-4 md:p-6"
+			className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
@@ -103,14 +103,6 @@ export default function ProjectModal({
 					flex-col
 					overflow-hidden
 					bg-[#09090f]
-					sm:h-auto
-					sm:max-h-[calc(100vh-2rem)]
-					sm:max-w-5xl
-					sm:rounded-3xl
-					sm:border
-					sm:border-white/10
-					sm:shadow-[0_30px_120px_rgba(0,0,0,0.6)]
-					md:max-h-[calc(100vh-3rem)]
 				"
 				initial={{
 					y: 20,
@@ -150,19 +142,15 @@ export default function ProjectModal({
 						py-4
 						backdrop-blur-xl
 						sm:px-6
-						sm:py-5
 						md:px-8
 					"
 				>
 					<div className="min-w-0 pr-2">
-						<div className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-white/40">
+						<div className="flex items-center gap-2">
 							<Sparkles size={14} />
-							<span>Project Spotlight</span>
-						</div>
-
-						<h2
-							id="project-modal-title"
-							className="
+							<h2
+								id="project-modal-title"
+								className="
 								text-xl
 								font-semibold
 								tracking-tight
@@ -170,9 +158,10 @@ export default function ProjectModal({
 								sm:text-2xl
 								md:text-3xl
 							"
-						>
-							{project.title}
-						</h2>
+							>
+								{project.title}
+							</h2>
+						</div>
 
 						<p className="mt-1.5 max-w-2xl text-sm leading-5 text-white/50 sm:leading-6">
 							{project.subtitle}
@@ -262,7 +251,7 @@ export default function ProjectModal({
 												(max-width: 1024px) 90vw,
 												1000px
 											"
-											className="object-cover"
+											className="object-contain rounded-xl sm:rounded-2xl"
 										/>
 									</motion.div>
 								</AnimatePresence>
@@ -408,7 +397,7 @@ export default function ProjectModal({
 														alt=""
 														fill
 														sizes="96px"
-														className="object-cover"
+														className="object-contain"
 													/>
 
 													{isActive && (
@@ -557,9 +546,9 @@ export default function ProjectModal({
 
 							{/* Navigation hint */}
 							<div className="w-full flex gap-3 mt-4">
-								{project.subtitle && (
+								{project.demoUrl && (
 									<a
-										href={project.subtitle}
+										href={project.demoUrl}
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex flex-1 items-center justify-center gap-1 rounded-xl bg-white px-4 py-3 text-sm font-medium text-black transition hover:bg-white/90"
@@ -569,14 +558,14 @@ export default function ProjectModal({
 									</a>
 								)}
 
-								{project.subtitle && (
+								{project.playstoreUrl && (
 									<a
-										href={project.subtitle}
+										href={project.playstoreUrl}
 										target="_blank"
 										rel="noopener noreferrer"
 										className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white transition hover:bg-white/[0.08]"
 									>
-										GitHub
+										PlayStore
 										<ExternalLink size={15} />
 									</a>
 								)}
