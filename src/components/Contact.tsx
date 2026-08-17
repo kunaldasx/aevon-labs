@@ -61,10 +61,11 @@ const SERVICES = [
 	"Other",
 ];
 const BUDGETS = [
-	["<5k", "< $5,000"],
-	["5k-15k", "$5,000 – $15,000"],
-	["15k-50k", "$15,000 – $50,000"],
-	["50k+", "$50,000+"],
+	["<20k", "Under ₹20,000"],
+	["20k-50k", "₹20,000 – ₹50,000"],
+	["50k-1l", "₹50,000 – ₹1,00,000"],
+	["1l-2.5l", "₹1,00,000 – ₹2,50,000"],
+	["2.5l+", "₹2,50,000+"],
 	["not-sure", "Not sure yet"],
 ];
 const PROMISES = [
@@ -279,7 +280,8 @@ export default function Contact() {
 											Message Received!
 										</h3>
 										<p className="text-foreground-muted">
-											We&apos;ll be in touch within 2 hours. Check your inbox.
+											We&apos;ve received your message and will get back to you
+											within 2 business hours.
 										</p>
 									</div>
 									<motion.button
